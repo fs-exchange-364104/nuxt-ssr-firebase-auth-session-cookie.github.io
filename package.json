@@ -1,0 +1,56 @@
+{
+  "name": "nuxt-ssr-firebase-auth-session-cookie",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "latest",
+    "@nuxtjs/dotenv": "latest",
+    "@nuxtjs/pwa": "^3.3.5",
+    "axios": "^0.26.1",
+    "body-parser": "^1.19.2",
+    "core-js": "^3.19.3",
+    "cookie": "latest",
+    "cookie-universal-nuxt": "latest",
+    "cookie-parser": "latest",
+    "cookieparser": "latest",
+    "dotenv": "latest",
+    "express": "^4.17.3",
+    "cookie-session": "latest",
+    "firebase": "^9.15.0",
+    "firebase-admin": "^10.2.0",
+    "nuxt": "^2.15.8",
+    "vue": "^2.7.14",
+    "vue-server-renderer": "^2.7.14",
+    "vue-template-compiler": "^2.7.14",
+    "util": "latest",
+    "vuetify": "^2.23.0"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.3",
+    "@nuxtjs/eslint-config": "^8.0.0",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/vuetify": "latest",
+    "babel-core": "7.0.0-bridge.0",
+    "eslint": "^8.4.1",
+    "eslint-plugin-nuxt": "^3.1.0",
+    "eslint-plugin-vue": "^8.2.0",
+    "eslint-plugin-promise": "latest",
+    "eslint-plugin-import": "latest",
+    "eslint-plugin-json": "latest",
+    "postcss": "latest",
+    "postcss-import": "latest"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "licenses": [
+    {
+      "license": "MIT AND Apache-2.0"
+    }
+  ]
+}
