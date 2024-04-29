@@ -53,8 +53,18 @@ export default function ({ $axios, req, app, redirect }) {
       };
     }
 
-    if (!config) {
-      
+    if (!config.headers['Access-Control-Allow-Origin']) {
+      config.headers = {
+        'Access-Control-Allow-Origin': '*',
+        ...config.headers
+      };
     }
+
+    return config;
+  });
+
+  $axios.onResponse((response) => {
+    console.log('Response headers: ', response.headers.toJSON(true));
+    return response;
   });
 }
