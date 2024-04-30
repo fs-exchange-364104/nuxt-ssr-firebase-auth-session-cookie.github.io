@@ -43,7 +43,7 @@ export default function (context, inject) {
   const database = getDatabase(app);
   const storage = getStorage(app);
   const functions = getFunctions(app, 'us-central1');
-
+  
   context.app.$fire = {
     appCheck,
     $auth: {
@@ -79,10 +79,42 @@ export default function (context, inject) {
     }
   };
   
-  return inject('$fire', {
+  return inject('fire', {
+    appCheck,
     $auth: {
       auth,
-      createUserWithEmailAndPassword
+      createUserWithEmailAndPassword,
+      sendEmailVerification,
+      signInWithEmailAndPassword,
+      signInWithPhoneNumber,
+      RecaptchaVerifier,
+      linkWithPhoneNumber,
+      updateCurrentUser,
+      signInWithCustomToken,
+      getIdToken,
+      signOut,
+      onAuthStateChanged,
+      onIdTokenChanged
+    },
+    $db: {
+      database,
+      ref,
+      child,
+      orderByChild,
+      equalTo,
+      push,
+      update,
+      onValue,
+      get
+    },
+    $storage: {
+      storage,
+      getDownloadURL,
+      uploadByteResumable
+    },
+    $functions: {
+      functions,
+      httpsCallable
     }
   });
 }
