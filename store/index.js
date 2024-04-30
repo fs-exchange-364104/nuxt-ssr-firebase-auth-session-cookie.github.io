@@ -31,7 +31,7 @@ export const actions = {
     }
   } : () => {},
 
-  login (context, { user, idToken }) {
+  async login ({ commit, dispatch }, { userData }) {
     context.commit('SET_UID', user.uid);
     context.commit('SET_AUTH_USER', {
       authUser: {
@@ -41,15 +41,36 @@ export const actions = {
         phoneNumber: user.phoneNumber
       }
     });
+    await this.$fire.$auth.signInWithEmailAndPassword(
+      this.$fire.$auth.auth,
+      userData.email,
+      userData.password
+    ).then((userCredential) => {
+      userCtedential.user.getIdToken(true).then((idToken) => {
+        
+      })
+    })
+  },
+
+  apiLogin (context, { userData, idToken }) {
     return this.$axios.$post(
       '/api/login',
-      { idToken: idToken },
+      { idToken: `${idToken}` },
       {
         headers: {
-          Accept: '*/*'
+          Accept: 'application/json'
         }
       }
-    ).then()
+    ).then((response) => {
+      console.log(response);
+    }).catch(() => {
+      console.log(error);
+    });
+  },
+
+  saveAuthUser ({ commit }, { uid, authUser }) {
+    commit('SET_UID', uid);
+    commit('SET_AUTH_USER', { authUser });
   }
 };
 
